@@ -5,6 +5,7 @@ import os
 import sys
 
 PROSSCESS_NUMBER = 10
+STARTING_NUM = 10000
 
 class Run(Process):
     def __init__(self,num):
@@ -20,6 +21,9 @@ class Run(Process):
         cmd_2 =  r' --limit 10 --download --chromedriver "C:\Users\86732\AppData\Local\Programs\Python\Python39\chromedriver.exe"'
         i = 0
         for word in word_list:
+            if i<STARTING_NUM:
+                i+=1
+                continue
             if i % 100 == self.num:
                 cmd = cmd_1 + word + cmd_2
                 os.popen(cmd)
